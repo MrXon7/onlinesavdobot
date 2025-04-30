@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: telegram-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        fromGroup: false
+      - key: ADMIN_IDS
+        fromGroup: false
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
