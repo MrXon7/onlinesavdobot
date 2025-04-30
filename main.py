@@ -160,7 +160,7 @@ async def cmd_start(message: Message):
             await message.answer("Savdoni boshqarish", reply_markup=make_web_keyboard(message.from_user.id))
         else:
             await message.answer(
-                "Assalomu alaykum!\n🛒Xarid qilishni boshlash uchun quyidagi tugmani bosing.",
+                "Assalomu alaykum!\n🛍Xarid qilishni boshlash uchun quyidagi tugmani bosing.",
                 reply_markup=make_web_keyboard(message.from_user.id)
             )
         add_user(message.from_user)
@@ -305,7 +305,7 @@ app.router.add_get("/health", health_check)
 
 def keep_alive():
     try:
-        requests.get("https://barberbotim-1.onrender.com/health")
+        requests.get("https://onlinesavdobot.onrender.com/health")
     except:
         pass
     threading.Timer(300, keep_alive).start()  # Har 5 daqiqada
