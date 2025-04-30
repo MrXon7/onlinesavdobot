@@ -131,7 +131,7 @@ def make_web_keyboard(user_id: int) -> Optional[ReplyKeyboardMarkup]:
     try:
         keyboard=[]
         keyboard.append([KeyboardButton(
-                text="Mening Sartaroshim",
+                text="Do'konga kirish",
                 web_app=WebAppInfo(url=f"{WEB_URL}?telegram_id={user_id}")
             )])
       
@@ -157,9 +157,10 @@ async def cmd_start(message: Message):
     try:
         if message.from_user.id in ADMIN_IDS:
             await message.answer("Admin paneli:", reply_markup=make_admin_keyboard())
+            await message.answer("Savdoni boshqarish", reply_markup=make_web_keyboard(message.from_user.id))
         else:
             await message.answer(
-                "Assalomu alaykum!\n✅Navbatga yozilish uchun quyidagi tugmani bosing.",
+                "Assalomu alaykum!\n🛒Xarid qilishni boshlash uchun quyidagi tugmani bosing.",
                 reply_markup=make_web_keyboard(message.from_user.id)
             )
         add_user(message.from_user)
