@@ -30,6 +30,7 @@ import threading
 # Sozlamalar
 BOT_TOKEN = os.getenv('BOT_TOKEN')  # Fetch the bot token from environment variables
 ADMIN_IDS = list(map(int, os.getenv('ADMIN_IDS').split(',')))  # Replace with actual admin IDs
+WEB_URL= os.getenv('WEB_URL')  # Replace with your web URL
 WEBHOOK_PATH = "/webhook"
 WEB_SERVER_HOST = "0.0.0.0"
 WEB_SERVER_PORT = int(os.getenv('PORT', 8000))
@@ -131,7 +132,7 @@ def make_web_keyboard(user_id: int) -> Optional[ReplyKeyboardMarkup]:
         keyboard=[]
         keyboard.append([KeyboardButton(
                 text="Mening Sartaroshim",
-                web_app=WebAppInfo(url=f"https://uzonlinesavdo.web.app?telegram_id={user_id}")
+                web_app=WebAppInfo(url=f"{WEB_URL}?telegram_id={user_id}")
             )])
       
         return ReplyKeyboardMarkup(
