@@ -157,11 +157,9 @@ async def cmd_start(message: Message):
     try:
         if message.from_user.id in ADMIN_IDS:
             await message.answer("Admin paneli:", reply_markup=make_admin_keyboard())
-            await message.answer("Savdoni boshqarish", reply_markup=make_web_keyboard(message.from_user.id))
         else:
             await message.answer(
-                "Assalomu alaykum!\n🛍Xarid qilishni boshlash uchun quyidagi tugmani bosing.",
-                reply_markup=make_web_keyboard(message.from_user.id)
+                "Assalomu alaykum!\n🛍Xarid qilishni boshlash uchun quyidagi tugmani bosing."
             )
         add_user(message.from_user)
     except Exception as e:
