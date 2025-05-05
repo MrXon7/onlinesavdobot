@@ -132,7 +132,7 @@ def make_web_keyboard(user_id: int) -> Optional[ReplyKeyboardMarkup]:
         keyboard=[]
         keyboard.append([KeyboardButton(
                 text="🏪Savdoni boshlash",
-                web_app=WebAppInfo(url=f"{WEB_URL}")
+                web_app=WebAppInfo(url=f"{WEB_URL}?telegram_id={user_id}")
             )])
       
         return ReplyKeyboardMarkup(
